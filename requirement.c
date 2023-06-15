@@ -48,8 +48,8 @@ static char *clean_loop(char *str, int nb_words)
             new_str[j] = str[i];
             j++;
         }
-        if ((str[i - 1] >= 'a' && str[i - 1] <= 'z' || str[i - 1] >= 'A'
-            && str[i - 1] <= 'Z') && (str[i] == ' ' || str[i] == '\t'
+        if ((str[i - 1] != ' ' && str[i - 1] != '\t' && str[i - 1] != '\n'
+            && str[i - 1] != '\r') && (str[i] == ' ' || str[i] == '\t'
             || str[i] == '\n' || str[i] == '\r') && nb_spaces < nb_words - 1) {
             nb_spaces++;
             new_str[j] = ' ';
@@ -64,10 +64,11 @@ char *my_strcapitalize_synthesis(char *str)
     int nb_words = count_words(str);
 
     str = clean_loop(str, nb_words);
-    if (str[0] < 'A' || str[0] > 'Z')
+    if (str[0] >= 'a' || str[0] > 'z')
         str[0] = str[0] - 32;
     for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i - 1] == ' ' && (str[i] < 'A' || str[i] > 'Z'))
+        if (str[i - 1] == ' ' && (str[i] < 'A' || str[i] > 'Z')
+            && (str[i] > '9' || str[i] < '0'))
             str[i] = str[i] - 32;
     }
     return str;
