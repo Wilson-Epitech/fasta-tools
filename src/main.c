@@ -10,11 +10,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
+
+static bool is_number(char const *str)
+{
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] < '0' || str[i] > '9')
+            return false;
+    }
+    return true;
+}
+
+static int error_handling(int ac, char **av)
+{
+    if (ac == 3 && (!is_number(av[1]) || !is_number(av[2])))
+        return 84;
+    if (ac < 2)
+        return 84;
+    if (ac == 2 && !is_number(av[1]))
+        return 84;
+    if (ac > 3)
+        return 84;
+    return 0;
+}
 
 int main(int ac, char **av)
 {
-    if (ac < 2)
-        return 84;
     char *str = NULL;
     char *buffer = malloc(sizeof(char) + 1);
     size_t length = 0;
@@ -22,6 +43,8 @@ int main(int ac, char **av)
     char *tmp = NULL;
     int len = 0;
 
+    if (error_handling(ac, av) == 84)
+        return 84;
     *buffer = '\0';
     while ((nread = getline(&str, &length, stdin)) != -1) {
             tmp = malloc(sizeof(char) * (strlen(str)) + 1);
