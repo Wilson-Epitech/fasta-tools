@@ -8,13 +8,11 @@
 CC ?= gcc
 
 SRC	=	src/main.c 										\
-		src/copy_content_file.c							\
 		src/fasta_loop.c								\
 		src/lib/is_delim_separator.c					\
 		src/lib/my_word_array_delim.c					\
 
-UTSRC = src/copy_content_file.c							\
-		src/fasta_loop.c								\
+UTSRC = src/fasta_loop.c								\
 		src/lib/is_delim_separator.c					\
 		src/lib/my_word_array_delim.c					\
 
