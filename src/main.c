@@ -13,7 +13,12 @@
 
 static int error_handling(int ac, char **av)
 {
-    if (ac == 3 && (!is_number(av[1]) || (av[2][0] != '-' || av[2][1] != 'k')))
+    int nb = 0;
+    if (ac == 3 && (is_number(av[1])))
+        nb = atoi(av[1]);
+    if (ac == 3 && nb != 4)
+        return 84;
+    if (ac == 3 && (!is_number(av[1]) || (!is_number(av[2]))))
         return 84;
     if (ac < 2)
         return 84;
