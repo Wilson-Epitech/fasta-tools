@@ -11,18 +11,28 @@ SRC	=	src/main.c 										\
 		src/fasta_loop.c								\
 		src/opt_1.c										\
 		src/opt_2.c										\
+		src/opt_3.c										\
 		src/lib/is_delim_separator.c					\
 		src/lib/my_word_array_delim.c					\
 		src/lib/is_number.c								\
 		src/lib/my_strupcase.c							\
+		src/lib/my_revstr.c								\
+		src/skip_undna_char.c							\
+		src/remove_spaces.c								\
+		src/replace_char.c								\
 
 UTSRC = src/fasta_loop.c								\
 		src/opt_1.c										\
 		src/opt_2.c										\
+		src/opt_3.c										\
 		src/lib/is_delim_separator.c					\
 		src/lib/my_word_array_delim.c					\
 		src/lib/is_number.c								\
 		src/lib/my_strupcase.c							\
+		src/lib/my_revstr.c								\
+		src/skip_undna_char.c							\
+		src/remove_spaces.c								\
+		src/replace_char.c								\
 
 UTDIR = src/test/unit_test.c
 

@@ -11,46 +11,6 @@
 #include <string.h>
 #include <stdio.h>
 
-static char *skip_undna_char(char *str)
-{
-    int k = 0;
-    int len = strlen(str);
-    char *new_str = malloc(sizeof(char) * (len) + 1);
-
-    for (int j = 0; str[j] != '\0'; j++) {
-        if (str[j] == 'A' || str[j] == 'a' || str[j] == 'T'
-            || str[j] == 't' || str[j] == 'G' || str[j] == 'g'
-            || str[j] == 'C' || str[j] == 'N' || str[j] == 'n'
-            || str[j] == 'c' || str[j] == '\n') {
-                new_str[k] = str[j];
-                k++;
-            }
-    }
-    return new_str;
-}
-
-static char *remove_spaces(char *str)
-{
-    int k = 0;
-    int count = 0;
-    char *new_str = NULL;
-    int len = 0;
-
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] == ' ')
-            count ++;
-    }
-    len = strlen(str) - count + 2;
-    new_str = malloc(sizeof(char) * (len));
-    for (int j = 0; str[j] != '\0'; j++) {
-        if (str[j] != ' ') {
-            new_str[k] = str[j];
-            k++;
-        }
-    }
-    return new_str;
-}
-
 int fasta_opt1(char *buffer)
 {
     char **array = my_word_array_delim(buffer, "\n");
@@ -69,5 +29,6 @@ int fasta_opt1(char *buffer)
             printf("%s", array[i]);
         }
     }
+    printf("\n");
     return 0;
 }

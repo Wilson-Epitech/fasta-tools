@@ -11,7 +11,7 @@
 #include <string.h>
 #include <stdio.h>
 
-static char *replace_char_by_char(char *str, char c)
+static char *replace_char_by_char(char *str, char find, char replace)
 {
     int k = 0;
     char *new_str = NULL;
@@ -19,50 +19,10 @@ static char *replace_char_by_char(char *str, char c)
     new_str = malloc(sizeof(char) * (len) + 1);
 
     for (int j = 0; str[j] != '\0'; j++) {
-        if (str[j] == 'T') {
-            new_str[k] = c;
+        if (str[j] == find) {
+            new_str[k] = replace;
             k++;
         } else {
-            new_str[k] = str[j];
-            k++;
-        }
-    }
-    return new_str;
-}
-
-static char *skip_undna_char(char *str)
-{
-    int k = 0;
-    int len = strlen(str) + 1;
-    char *new_str = malloc(sizeof(char) * (len) + 1);
-
-    for (int j = 0; str[j] != '\0'; j++) {
-        if (str[j] == 'A' || str[j] == 'a' || str[j] == 'T'
-            || str[j] == 't' || str[j] == 'G' || str[j] == 'g'
-            || str[j] == 'C' || str[j] == 'N' || str[j] == 'n'
-            || str[j] == 'c' || str[j] == '\n') {
-                new_str[k] = str[j];
-                k++;
-        }
-    }
-    return new_str;
-}
-
-static char *remove_spaces(char *str)
-{
-    int k = 0;
-    int count = 0;
-    char *new_str = NULL;
-    int len = 0;
-
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] == ' ')
-            count ++;
-    }
-    len = strlen(str) - count + 2;
-    new_str = malloc(sizeof(char) * (len));
-    for (int j = 0; str[j] != '\0'; j++) {
-        if (str[j] != ' ') {
             new_str[k] = str[j];
             k++;
         }
@@ -85,9 +45,10 @@ int fasta_opt2(char *buffer)
             array[i] = remove_spaces(array[i]);
             array[i] = skip_undna_char(array[i]);
             array[i] = my_strupcase(array[i]);
-            array[i] = replace_char_by_char(array[i], 'U');
+            array[i] = replace_char_by_char(array[i], 'T', 'U');
             printf("%s", array[i]);
         }
     }
+    printf("\n");
     return 0;
 }

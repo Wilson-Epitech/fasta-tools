@@ -14,5 +14,9 @@
     int fasta_loop(int ac, char **av, char *buffer);
     int fasta_opt1(char *buffer);
     int fasta_opt2(char *buffer);
+    int fasta_opt3(char *buffer);
+    char *skip_undna_char(char *str);
+    char *remove_spaces(char *str);
+    char *replace_char(char *str);
 
 #endif /* !MY_H_ */

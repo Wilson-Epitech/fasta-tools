@@ -14,5 +14,6 @@
     char **my_word_array_delim(char const *str, char *separators);
     bool is_number(char const *str);
     char *my_strupcase(char *str);
+    char *my_revstr(char *str);
 
 #endif /* !LIB_H_ */
