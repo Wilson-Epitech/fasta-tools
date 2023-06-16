@@ -12,5 +12,7 @@
 
     bool is_delim(char c, char *separators);
     char **my_word_array_delim(char const *str, char *separators);
+    bool is_number(char const *str);
+    char *my_strupcase(char *str);
 
 #endif /* !LIB_H_ */

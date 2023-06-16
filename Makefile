@@ -9,12 +9,20 @@ CC ?= gcc
 
 SRC	=	src/main.c 										\
 		src/fasta_loop.c								\
+		src/opt_1.c										\
+		src/opt_2.c										\
 		src/lib/is_delim_separator.c					\
 		src/lib/my_word_array_delim.c					\
+		src/lib/is_number.c								\
+		src/lib/my_strupcase.c							\
 
 UTSRC = src/fasta_loop.c								\
+		src/opt_1.c										\
+		src/opt_2.c										\
 		src/lib/is_delim_separator.c					\
 		src/lib/my_word_array_delim.c					\
+		src/lib/is_number.c								\
+		src/lib/my_strupcase.c							\
 
 UTDIR = src/test/unit_test.c
 

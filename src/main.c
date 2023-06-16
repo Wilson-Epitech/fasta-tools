@@ -10,20 +10,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
-
-static bool is_number(char const *str)
-{
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] < '0' || str[i] > '9')
-            return false;
-    }
-    return true;
-}
 
 static int error_handling(int ac, char **av)
 {
-    if (ac == 3 && (!is_number(av[1]) || !is_number(av[2])))
+    if (ac == 3 && (!is_number(av[1]) || (av[2][0] != '-' || av[2][1] != 'k')))
         return 84;
     if (ac < 2)
         return 84;
@@ -54,6 +44,6 @@ int main(int ac, char **av)
             strcat(buffer, tmp);
             free(tmp);
     }
-    fasta_loop(buffer);
+    fasta_loop(ac, av, buffer);
     return 0;
 }
