@@ -18,5 +18,7 @@ int fasta_loop(int ac, char **av, char *buffer)
         fasta_opt2(buffer);
     if (ac == 2 && is_number(av[1]) && opt_value == 3)
         fasta_opt3(buffer);
+    if (ac == 2 && is_number(av[1]) && opt_value == 5)
+        fasta_opt5(buffer);
     return 0;
 }

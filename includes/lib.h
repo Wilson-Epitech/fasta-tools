@@ -15,5 +15,7 @@
     bool is_number(char const *str);
     char *my_strupcase(char *str);
     char *my_revstr(char *str);
+    void print_array(char **array);
+    void my_swap_str(char **a, char **b);
 
 #endif /* !LIB_H_ */
