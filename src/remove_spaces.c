@@ -27,5 +27,6 @@ char *remove_spaces(char *str)
             k++;
         }
     }
+    new_str[k] = '\0';
     return new_str;
 }

@@ -13,10 +13,10 @@
 
 static char *get_name_seq(char *str, char *new_buffer, char *tmp, int len)
 {
-    tmp = malloc(sizeof(char) * (strlen(str) + 1));
+    tmp = malloc(sizeof(char) * (strlen(str) + 3));
     sprintf(tmp, "\n%s\n", str);
     len = strlen(new_buffer) + strlen(str);
-    new_buffer = realloc(new_buffer, len + 1);
+    new_buffer = realloc(new_buffer, len + 3);
     strcat(new_buffer, tmp);
     free(tmp);
     return new_buffer;
@@ -24,10 +24,10 @@ static char *get_name_seq(char *str, char *new_buffer, char *tmp, int len)
 
 static char *get_first_line(char *str, char *new_buffer, char *tmp, int len)
 {
-    tmp = malloc(sizeof(char) * (strlen(str)) + 1);
+    tmp = malloc(sizeof(char) * (strlen(str)) + 2);
     sprintf(tmp, "%s\n", str);
     len = strlen(new_buffer) + strlen(str);
-    new_buffer = realloc(new_buffer, len + 1);
+    new_buffer = realloc(new_buffer, len + 2);
     strcat(new_buffer, tmp);
     free(tmp);
     return new_buffer;
@@ -35,7 +35,7 @@ static char *get_first_line(char *str, char *new_buffer, char *tmp, int len)
 
 static char *get_group_str(char *str, char *new_buffer, char *tmp, int len)
 {
-    tmp = malloc(sizeof(char) * (strlen(str)) + 1);
+    tmp = malloc(sizeof(char) * (strlen(str)) + 2);
     str = remove_spaces(str);
     str = skip_undna_char(str);
     str = my_strupcase(str);

@@ -23,5 +23,6 @@ char *skip_undna_char(char *str)
                 k++;
         }
     }
+    new_str[k] = '\0';
     return new_str;
 }
