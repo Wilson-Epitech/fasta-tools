@@ -15,9 +15,9 @@ static int error_handling(int ac, char **av)
 {
     int nb = 0;
 
-    if (ac == 3 && (is_number(av[1])))
+    if ((ac == 2 || ac == 3) && (is_number(av[1])))
         nb = atoi(av[1]);
-    if (ac == 3 && (nb > 7 || nb < 1))
+    if (nb > 7 || nb < 1)
         return 84;
     if (ac == 3 && nb != 4)
         return 84;
