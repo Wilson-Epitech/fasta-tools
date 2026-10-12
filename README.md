@@ -14,7 +14,7 @@
 
 <p align="center"><img src=".github/assets/term-fasta-tools.png" alt="FASTAtools" width="820"/></p>
 
-## En deux mots
+## Le projet en quelques mots
 
 Un petit outil en ligne de commande qui lit des séquences au format **FASTA** et les transforme.
 
@@ -25,10 +25,6 @@ Un petit outil en ligne de commande qui lit des séquences au format **FASTA** e
 - Option 3 : brin complémentaire inverse
 - Séquences d'exemple dans [`examples/`](examples)
 - Tests unitaires Criterion
-
-## Sous le capot
-
-Les séquences sont lues sur l'entrée standard et regroupées par en-tête `>`. Chaque option applique une transformation caractère par caractère : remplacer `T` par `U`, inverser la séquence et complémenter `A↔T` / `C↔G`, etc.
 
 ## Lancer le projet
 
